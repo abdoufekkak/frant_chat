@@ -9,6 +9,8 @@ import { MsgAmiComponent } from './components/msg-ami/msg-ami.component';
 import { ChatMsgComponent } from './components/chat-msg/chat-msg.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AccuilleComponent } from './accuille/accuille.component';
+import { ProfileComponent } from './profile/profile.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -17,12 +19,14 @@ import { AccuilleComponent } from './accuille/accuille.component';
     ChatComponent,
     MsgAmiComponent,
     ChatMsgComponent,
-    AccuilleComponent
+    AccuilleComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

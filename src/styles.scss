@@ -89,7 +89,9 @@ body {
     align-items: center;
     cursor: pointer;
   }
-  
+  #ddd{
+    padding: 0%;
+  }
   .discussions .search .searchbar input {
     margin-left: 15px;
     height:38px;
@@ -645,6 +647,13 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     position: relative;
     align-items: center;
     padding: 15px;
+  }
+  #dd{
+    width: 100px;
+
+  }
+  #ss{
+    justify-content: space-between;
   }
   
   .post__avatar {
