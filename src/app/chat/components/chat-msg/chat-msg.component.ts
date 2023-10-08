@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component ,Input} from '@angular/core';
+import { message } from '../../model/msg.model';
 
 @Component({
   selector: 'app-chat-msg',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./chat-msg.component.scss']
 })
 export class ChatMsgComponent {
-
+@Input() msgs!:message[];
 }

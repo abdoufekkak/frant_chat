@@ -1,6 +1,7 @@
 <div class="ff">
-<div mon-attribut="app-msg-ami" class="ff"></div>
+<div mon-attribut="app-msg-ami" class="ff" [amis]="amis"       (valueEmitted)="getidami($event)"
+></div>
 
 
-<app-chat-msg class="ff"></app-chat-msg>
+<app-chat-msg class="ff" [msgs]="msgs"></app-chat-msg>
 </div>
