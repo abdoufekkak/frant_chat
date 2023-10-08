@@ -16,7 +16,7 @@ export class ChatComponent implements OnInit {
 
   }
   ngOnInit(): void {
-    this.userService.getamis().subscribe(e=>this.amis=e,err=>console.log(err))
+    this.userService.getamis().subscribe(e=>this.amis=e,err=>console.log("_____",err))
   }
   getidami(id:number){
     this.msgService.getMsgBy2Id(id).subscribe(e=>this.msgs=e,err=>console.log(err))

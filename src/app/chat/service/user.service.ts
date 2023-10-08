@@ -7,13 +7,13 @@ import { api } from 'src/app/api';
   providedIn: 'root'
 })
 export class UserService {
-   
+
 
   constructor(private http: HttpClient) { }
 
 
   getamis () :Observable<User[]> {
-  return  this.http.get<User[]>(`${api}/ami`)
+  return  this.http.get<User[]>(`${api}/client/amis/1`)
   }
-  
+
 }

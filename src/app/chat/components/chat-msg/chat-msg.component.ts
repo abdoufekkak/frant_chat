@@ -1,5 +1,6 @@
-import { Component ,Input} from '@angular/core';
-import { message } from '../../model/msg.model';
+import { Component ,EventEmitter,Input, Output} from '@angular/core';
+import { MessageType, message } from '../../model/msg.model';
+
 
 @Component({
   selector: 'app-chat-msg',
@@ -8,4 +9,11 @@ import { message } from '../../model/msg.model';
 })
 export class ChatMsgComponent {
 @Input() msgs!:message[];
+@Output() valueEmitted = new EventEmitter<MessageType>();
+constructor() {}
+
+
+isMessageTypeText(msg: message): boolean {
+  return msg.message_type === MessageType.Text;
+}
 }

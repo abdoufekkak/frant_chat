@@ -11,9 +11,9 @@ export class MsgService {
 
   constructor(private http: HttpClient) { }
 
-  
+
   getMsgBy2Id(receiver_id: number, sender_id: number = 1): Observable<message[]> {
     const params = { receiver_id: receiver_id.toString(), sender_id: sender_id.toString() };
-    return this.http.get<message[]>(`${api}/your_endpoint`, { params });
+    return this.http.get<message[]>(`${api}/message/by2users`, { params });
   }
 }
