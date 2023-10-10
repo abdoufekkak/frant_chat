@@ -16,4 +16,8 @@ export class MsgService {
     const params = { receiver_id: receiver_id.toString(), sender_id: sender_id.toString() };
     return this.http.get<message[]>(`${api}/message/by2users`, { params });
   }
+  setMsg(msg: message): Observable<message> {
+
+    return this.http.post<message>(`${api}/message`,  msg );
+  }
 }

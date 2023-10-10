@@ -12,8 +12,8 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
 
-  getamis () :Observable<User[]> {
-  return  this.http.get<User[]>(`${api}/client/amis/1`)
+  getamis (id_sender : number) :Observable<User[]> {
+  return  this.http.get<User[]>(`${api}/client/amis/`+id_sender)
   }
 
 }
