@@ -1,6 +1,5 @@
-import { Component,EventEmitter,Input,OnInit, Output,} from '@angular/core';
+import { Component,EventEmitter,Input,OnInit, Output,ViewChild,ElementRef, Renderer2,AfterViewInit} from '@angular/core';
 import { User } from '../../model/user.model';
-import { UserService } from '../../service/user.service';
 
 @Component({
   selector: '[mon-attribut="app-msg-ami"]',
@@ -23,5 +22,7 @@ if(id){
   this.valueEmitted.emit(id);
 
 }
+
   }
+ 
 }

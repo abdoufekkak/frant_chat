@@ -147,8 +147,9 @@ body {
     border: 3px solid #FAFAFA;
   }
   .ff{
-    display: flex;
+    display: grid;
     width: 100%;
+    grid-template-columns:30% 70%; /* Trois colonnes égales */
 
   }
   .desc-contact {
@@ -186,6 +187,8 @@ body {
 
   .chat {
     width: 100%;
+    display: flex;
+    flex-direction: column;
   }
 
   .header-chat {
@@ -194,7 +197,7 @@ body {
     position: relative;
     width: 100%;
     box-shadow: 0px 3px 2px rgba(0,0,0,0.100);
-    display:flex;
+    // display:flex;
     align-items: center;
   }
 
@@ -221,11 +224,13 @@ body {
     overflow-x: hidden;
     max-height: 500px;
 
+
   }
 
   .chat .messages-chat {
     padding: 25px 35px;
-
+  
+ width: 100%;
   }
 
   .chat .messages-chat .message {
@@ -281,12 +286,12 @@ body {
   }
 
   .footer-chat {
-    width: calc(65% - 66px);
+    // width: calc(7% - 66px);
+    position: relative;
+    width: 100%;
     height: 80px;
     display:flex;
     align-items: center;
-    position:absolute;
-    bottom: 0;
     background-color: transparent;
     border-top: 2px solid #EEE;
 
@@ -477,6 +482,13 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
   /* sidebar  */
 
+
+  .row{
+    width: 100%;
+    display: grid;
+    grid-template-columns:6% 95%; /* Trois colonnes égales */
+
+  }
   .sidebarRow {
     display: flex;
     align-items: center;

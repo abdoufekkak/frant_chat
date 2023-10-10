@@ -15,7 +15,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
-const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
+import { host } from './api';
+const config: SocketIoConfig = { url: `http://${host}:3000`, options: {} };
 
 @NgModule({
   declarations: [

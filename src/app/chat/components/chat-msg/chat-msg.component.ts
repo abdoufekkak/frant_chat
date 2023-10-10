@@ -1,21 +1,23 @@
-import { Component ,EventEmitter,Input, Output,OnInit} from '@angular/core';
+import { Component ,EventEmitter,Input, Output,OnInit,AfterViewInit,ViewChild,ElementRef,Renderer2,SimpleChanges,OnChanges} from '@angular/core';
 import { MessageType, message } from '../../model/msg.model';
 import { Socket } from 'ngx-socket-io';
 import { MsgService } from '../../service/msg.service';
 
 
 @Component({
-  selector: 'app-chat-msg',
+  selector:  '[mon-attribut="app-chat-msg"]',
   templateUrl: './chat-msg.component.html',
   styleUrls: ['./chat-msg.component.scss']
 })
-export class ChatMsgComponent   implements OnInit {
+export class ChatMsgComponent   implements OnInit,OnChanges {
 @Input() msgs!:message[];
 @Input() id_recever!:number;
 @Input() id_sender!:number;
 @Output() valueEmitted = new EventEmitter<MessageType>();
 msg:message=new message();
-constructor(private socket: Socket,private service : MsgService) {}
+@ViewChild('scrollContainer') scrollContainer!: ElementRef;
+
+constructor(private socket: Socket,private service : MsgService,private renderer: Renderer2) {}
 
 ngOnInit(): void {
   this.socket.on('msgenvoyer', (mess: message) => {
@@ -28,7 +30,19 @@ ngOnInit(): void {
 isMessageTypeText(msg: message): boolean {
   return msg.message_type === MessageType.Text;
 }
+ngOnChanges(changes: SimpleChanges) {
+  if (changes['msgs']) {
 
+setTimeout(() => {
+  this.n();
+}, 100);    
+  }
+}
+n() {
+  // Récupérez le conteneur avec débordement
+  const container = this.scrollContainer.nativeElement;
+  container.scrollTop = container.scrollHeight;
+}
 
 sendMessage() {
   this.msg.receiver_id=this.id_recever;
@@ -44,6 +58,7 @@ console.log(this.msgs)
     this.msgs.push(e);
 
     this.socket.emit('message', this.msg);
+    this.n();
 
     this.msg =new message();
   })

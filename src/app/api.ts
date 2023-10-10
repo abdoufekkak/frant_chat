@@ -1,1 +1,2 @@
-export const api="http://localhost:3000/api"
+export const host="localhost"
+export const api=`http://${host}:3000/api`
