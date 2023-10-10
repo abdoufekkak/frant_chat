@@ -12,6 +12,7 @@ import { message } from './model/msg.model';
 export class ChatComponent implements OnInit {
   amis!:User[]
   msgs!:message[]
+  id_recever!:number
   constructor(private userService:UserService,private msgService:MsgService){
 
   }
@@ -19,6 +20,6 @@ export class ChatComponent implements OnInit {
     this.userService.getamis().subscribe(e=>this.amis=e,err=>console.log("_____",err))
   }
   getidami(id:number){
-    this.msgService.getMsgBy2Id(id).subscribe(e=>this.msgs=e,err=>console.log(err))
+    this.msgService.getMsgBy2Id(id).subscribe(e=>{this.msgs=e,this.id_recever=id},err=>console.log(err))
   }
 }

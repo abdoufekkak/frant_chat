@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +13,8 @@ import { AccuilleComponent } from './accuille/accuille.component';
 import { ProfileComponent } from './profile/profile.component';
 import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
 
 @NgModule({
   declarations: [
@@ -28,7 +31,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatIconModule,
-    HttpClientModule
+    HttpClientModule,
+    SocketIoModule.forRoot(config),FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
