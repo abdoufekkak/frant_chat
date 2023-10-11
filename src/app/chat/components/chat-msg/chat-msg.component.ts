@@ -35,7 +35,7 @@ ngOnChanges(changes: SimpleChanges) {
 
 setTimeout(() => {
   this.n();
-}, 100);    
+}, 100);
   }
 }
 n() {

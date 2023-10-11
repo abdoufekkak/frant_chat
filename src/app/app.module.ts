@@ -16,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { host } from './api';
+import { AudioComponent } from './audio/audio.component';
 const config: SocketIoConfig = { url: `http://${host}:3000`, options: {} };
 
 @NgModule({
@@ -27,7 +28,8 @@ const config: SocketIoConfig = { url: `http://${host}:3000`, options: {} };
     ChatMsgComponent,
     AccuilleComponent,
     ProfileComponent,
-    LoginComponent
+    LoginComponent,
+    AudioComponent
   ],
   imports: [
     BrowserModule,
