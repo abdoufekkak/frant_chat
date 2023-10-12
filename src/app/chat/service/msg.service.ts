@@ -16,8 +16,12 @@ export class MsgService {
     const params = { receiver_id: receiver_id.toString(), sender_id: sender_id.toString() };
     return this.http.get<message[]>(`${api}/message/by2users`, { params });
   }
-  setMsg(msg: message): Observable<message> {
+  setMsg(msg: any): Observable<message> {
 
     return this.http.post<message>(`${api}/message`,  msg );
   }
+  envpyerfile(formData:any ) {
+ return   this.http.post('http://localhost:3000/upload-audio', formData)
+  }
+
 }

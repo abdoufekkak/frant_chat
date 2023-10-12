@@ -1,3 +1,4 @@
+
 <section class="chat" >
     <div class="header-chat">
       <i class="icon fa fa-user-o" aria-hidden="true"></i>
@@ -10,18 +11,35 @@
     <div *ngIf="msg.receiver_id!=id_recever" class="photo" style="background-image: url(https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80);">
       <div class="online"></div>
     </div>
-    <p *ngIf="msg.receiver_id!=id_recever" class="text">{{msg.content}} </p>
-    <div *ngIf="msg.receiver_id==id_recever"  class="response">
-      <p class="text"> {{msg.content}}</p>
+    <p *ngIf="msg.receiver_id!=id_recever && msg.message_type=='Text'" class="text">{{msg.content}} </p>
+    
+<audio controls *ngIf="msg.receiver_id!=id_recever && msg.message_type=='Audio'" class="Text">
+  <source [src]="'http://localhost:3000/uploads/'+msg.content" type="audio/ogg">
+  Votre navigateur ne prend pas en charge l'élément audio.
+</audio>
+
+
+    <div *ngIf="msg.receiver_id==id_recever && msg.message_type=='Audio'"  class="response">
+      <audio controls  class="Text">
+        <source [src]="'http://localhost:3000/uploads/'+msg.content" type="audio/ogg">
+        Votre navigateur ne prend pas en charge l'élément audio.
+      </audio>  
     </div>
+      <div *ngIf="msg.receiver_id==id_recever && msg.message_type=='Text'"  class="response">
+     <p class="text">   {{msg.content}}</p>
+         </div>
+      
 
     </div>
     
+   
+  
     </div>
     <div *ngIf="id_recever"  class="footer-chat">
-      <i class="icon fa fa-smile-o clickable" style="font-size:25pt;" aria-hidden="true"></i>
-      <input type="text" class="write-message" placeholder="Type your message here" [(ngModel)]="msg.content">
-      <i class="icon send fa fa-paper-plane-o clickable" (click)="sendMessage()" aria-hidden="true"></i>
+      <i class="icon fa fa-smile-o clickable" style="font-size:25pt;" aria-hidden="true" ></i>
+      <input type="text" class="write-message" placeholder="Type your message here" [(ngModel)]="content">
+      <i class="icon send fa fa-paper-plane-o clickable" (click)="sendMessage()" aria-hidden="true" *ngIf="content"></i>
+      <mat-icon  (click)="sendMessage()" *ngIf="!content">mic</mat-icon>
     </div>
    
   </section>

@@ -291,6 +291,7 @@ body {
     width: 100%;
     height: 80px;
     display:flex;
+    justify-content: space-around;
     align-items: center;
     background-color: transparent;
     border-top: 2px solid #EEE;
@@ -306,7 +307,6 @@ body {
   .chat .footer-chat .send {
     color:#fff;
     background-color: #4f6ebd;
-    position: absolute;
     right: 50px;
     padding: 12px 12px 12px 12px;
     border-radius: 50px;
@@ -552,14 +552,13 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   body {
     background-color: #f1f2f5;
   }
-
+.dddd{
+  display: block;
+}
   .feed {
-    /* Réglez la largeur, la hauteur ou d'autres propriétés selon vos besoins */
-
-    /* Centrez horizontalement et verticalement */
-    position: absolute;
+    
+     position: absolute;
     left: 50%;
-
     transform: translate(-50%, 0%);
     // z-index: 0;
     //  padding: 20px;
@@ -569,6 +568,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     // align-items: center;
     overflow-y: auto; /* Activer le défilement vertical lorsque le contenu dépasse la hauteur maximale */
     max-height: 700px;
+    width: auto;
 }
 .feed::-webkit-scrollbar {
     width: 10px; /* Largeur de la barre de défilement */

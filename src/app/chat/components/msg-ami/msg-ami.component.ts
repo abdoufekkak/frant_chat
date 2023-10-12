@@ -1,6 +1,5 @@
 import { Component,EventEmitter,Input,OnInit, Output,ViewChild,ElementRef, Renderer2,AfterViewInit} from '@angular/core';
 import { User } from '../../model/user.model';
-
 @Component({
   selector: '[mon-attribut="app-msg-ami"]',
   templateUrl: './msg-ami.component.html',
