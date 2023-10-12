@@ -3,18 +3,21 @@ import { MessageType, message } from '../../model/msg.model';
 import { Socket } from 'ngx-socket-io';
 import { MsgService } from '../../service/msg.service';
 
-
 @Component({
   selector:  '[mon-attribut="app-chat-msg"]',
   templateUrl: './chat-msg.component.html',
-  styleUrls: ['./chat-msg.component.scss']
+  styleUrls: ['./chat-msg.component.scss'],
+
 })
 export class ChatMsgComponent   implements OnInit,OnChanges {
+
 @Input() msgs!:message[];
 @Input() id_recever!:number;
 @Input() id_sender!:number;
 @Output() valueEmitted = new EventEmitter<MessageType>();
 msg:message=new message();
+dateJour : any ;
+foc : boolean = true;
 @ViewChild('scrollContainer') scrollContainer!: ElementRef;
 
 constructor(private socket: Socket,private service : MsgService,private renderer: Renderer2) {}
@@ -43,7 +46,9 @@ n() {
   const container = this.scrollContainer.nativeElement;
   container.scrollTop = container.scrollHeight;
 }
-
+focu(){
+  this.foc= !this.foc
+}
 sendMessage() {
   this.msg.receiver_id=this.id_recever;
 this.msg.sender_id=this.id_sender;

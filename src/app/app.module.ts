@@ -12,6 +12,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AccuilleComponent } from './accuille/accuille.component';
 import { ProfileComponent } from './profile/profile.component';
 import { MatIconModule } from '@angular/material/icon';
+
+import {MatMenuModule} from '@angular/material/menu';
+import {MatButtonModule} from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
@@ -32,6 +35,8 @@ const config: SocketIoConfig = { url: `http://${host}:3000`, options: {} };
     AudioComponent
   ],
   imports: [
+    MatButtonModule,
+    MatMenuModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
