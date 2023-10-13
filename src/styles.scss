@@ -9,8 +9,38 @@ body {
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     height: 700px;
   }
+.dateMessage{
+  position: relative;
+  top: 10px;
+  left: 5px;
+  font-size: 9px;
 
-  /* ===== MENU ===== */
+}
+#menuIco {
+  cursor: pointer;
+  font-size: 20px;
+  max-height:15px ;
+
+}
+
+
+.black-icon {
+  color: black;
+  font-size: 20px;
+
+}
+.dateJour{
+  position: fixed;
+  background-color: gray;
+  width: 5%;
+  text-align: center;
+  border-radius: 6%;
+  height: 3%;
+
+  left: 62%;
+margin: auto;
+}
+/* ===== MENU ===== */
   .menu {
     float: left;
     height: 700px;;
@@ -229,7 +259,7 @@ body {
 
   .chat .messages-chat {
     padding: 25px 35px;
-  
+
  width: 100%;
   }
 
@@ -556,7 +586,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   display: block;
 }
   .feed {
-    
+
      position: absolute;
     left: 50%;
     transform: translate(-50%, 0%);

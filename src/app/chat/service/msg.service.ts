@@ -23,5 +23,17 @@ export class MsgService {
   envpyerfile(formData:any ) {
  return   this.http.post('http://localhost:3000/upload-audio', formData)
   }
+  sendImage(formData:any ) {
+    return   this.http.post('http://localhost:3000/upload-image', formData)
+     }
+  dlete_for_me(id: number) {
+    const url = `${api}/message/moi/${id}`;
+    return this.http.delete(url);
+  }
+  dlete_for_all(id: number) {
+    const url = `${api}/message/moi/${id}`;
+    return this.http.delete(url);
+  }
+
 
 }
