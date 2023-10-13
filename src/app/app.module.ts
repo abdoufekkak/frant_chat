@@ -19,7 +19,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { host } from './api';
-import { AudioComponent } from './audio/audio.component';
+import { StatistiqueProfileComponent } from './profile/componets/statistique-profile/statistique-profile.component';
+import { PosterPostesComponent } from './profile/componets/poster-postes/poster-postes.component';
+import { PostesComponent } from './profile/componets/postes/postes.component';
+import {MatDialogModule} from '@angular/material/dialog';
 const config: SocketIoConfig = { url: `http://${host}:3000`, options: {} };
 
 @NgModule({
@@ -32,7 +35,9 @@ const config: SocketIoConfig = { url: `http://${host}:3000`, options: {} };
     AccuilleComponent,
     ProfileComponent,
     LoginComponent,
-    AudioComponent
+    StatistiqueProfileComponent,
+    PosterPostesComponent,
+    PostesComponent
   ],
   imports: [
     MatButtonModule,
@@ -42,6 +47,7 @@ const config: SocketIoConfig = { url: `http://${host}:3000`, options: {} };
     BrowserAnimationsModule,
     MatIconModule,
     HttpClientModule,
+    MatDialogModule,
     SocketIoModule.forRoot(config),FormsModule
   ],
   providers: [],
