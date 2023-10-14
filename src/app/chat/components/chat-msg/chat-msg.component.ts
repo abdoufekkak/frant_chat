@@ -32,7 +32,6 @@ export class ChatMsgComponent implements OnInit, OnChanges {
   @Input() id_recever!: number;
   @Input() id_sender!: number;
   isrecord: boolean = false;
-  profilePicture!: string ;
   dateJour: any;
   hoverIndex: number | null = null;
   foc: boolean = true;
@@ -267,12 +266,32 @@ export class ChatMsgComponent implements OnInit, OnChanges {
 
       if (files.length > 0) {
         const formData = new FormData();
-        this.profilePicture=files[0].name;
         formData.append('imageFile', files[0]);
 
-        this.service.sendImage(formData).subscribe(response => {
-          console.log('Image uploaded successfully');
-        });
+        this.service.sendImage(formData).pipe(
+          concatMap((value) => {
+            const messageData = {
+              sender_id: this.id_sender,
+              receiver_id: this.id_recever,
+              content: value,
+              send_date: new Date(),
+              message_type: 'image',
+              contry_msg: 'maroc',
+            };
+
+            return this.service.setMsg(messageData);
+          })
+        )
+        .subscribe(
+          (response) => {
+            console.log("dd",response);
+            this.msgs.push(response);
+            this.socket.emit('message', response);
+          },
+          (error) => {
+            console.log(error);
+          }
+        )
       }
     }
   }

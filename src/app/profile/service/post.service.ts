@@ -16,9 +16,15 @@ export class postService {
     return this.http.post(`${api2}/profile/react/${id}`, null);
   }
   createPost(post: Post) {
+    console.log('post: ' + post);
+
     return this.http.post(`${api2}/profile/`, post);
   }
   deletePost(id: number) {
     return this.http.delete(`${api2}/profile/${id}`);
+  }
+  sendPost(formData:any) {
+    console.log("send image to folder")
+    return   this.http.post('http://localhost:3001/upload-image-post', formData)
   }
 }

@@ -657,8 +657,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   }
 
   .messageSender__bottom {
-    display: flex;
-    justify-content: space-evenly;
+    margin: auto;
+    // display: flex;
+    // justify-content: space-evenly;
   }
 
   .messageSender__option {
@@ -668,7 +669,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     color: gray;
     margin: 5px;
   }
-
+#icon_post_image{
+  justify-content: center;
+}
   .messageSender__option h3 {
     font-size: medium;
     margin-left: 10px;

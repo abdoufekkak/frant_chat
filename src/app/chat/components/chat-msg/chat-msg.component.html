@@ -29,13 +29,13 @@
           </button>
         </mat-menu>
       </p>
+      <img *ngIf="msg.receiver_id!=id_recever && msg.message_type=='image'" [src]="'http://localhost:3000/images/'+msg.content" width="200px" >
 
       <audio controls *ngIf="msg.receiver_id!=id_recever && msg.message_type=='Audio'" class="Text">
         <source [src]="'http://localhost:3000/uploads/'+msg.content" type="audio/ogg">
         Votre navigateur ne prend pas en charge l'élément audio.
       </audio>
 
-      <img width="100px" [src]="profilePicture">
 
       <div *ngIf="msg.receiver_id==id_recever && msg.message_type=='Audio'" class="response">
         <audio controls class="Text">
@@ -43,7 +43,11 @@
           Votre navigateur ne prend pas en charge l'élément audio.
         </audio>
       </div>
+      <div *ngIf="msg.receiver_id==id_recever && msg.message_type=='image'" style="padding:10px ;" class="response">
+      <img  [src]="'http://localhost:3000/images/'+msg.content"  width="200px" >
+      </div>
       <div *ngIf="msg.receiver_id==id_recever && msg.message_type=='Text' && msg.deleted_fr_me==null" class="response">
+
         <p (mouseleave)="quitterElement()" (mouseenter)="survolerElement(i)" class="text"> {{msg.content}}
           <span class="dateMessage" [hidden]="!(hoverIndex !== i)"> {{ msg.send_date | date : "HH:mm" }}</span>
           <span>
