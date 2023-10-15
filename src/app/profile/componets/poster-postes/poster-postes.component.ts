@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Post } from '../../model/post.model';
-import { postService } from '../../service/post.service';
+import { PostService } from '../../service/post.service';
 import { concatMap } from 'rxjs';
 
 @Component({
@@ -13,7 +13,7 @@ export class PosterPostesComponent {
   profile_url!: string;
   post!: Post;
   content!: string;
-  constructor(private service: postService) {}
+  constructor(private service: PostService) {}
   handlePictureStatut(event: Event) {
     const inputElement = event.target as HTMLInputElement;
     if (inputElement && inputElement.files) {
@@ -44,19 +44,13 @@ export class PosterPostesComponent {
           concatMap((value) => {
             this.post.url_img =( value as string);
 
-            console.log('url_img:', this.post.url_img);
-            console.log('date_pub:', this.post.date_pub);
-            console.log('date_sup:', this.post.date_sup);
-            console.log('content:', this.post.content);
-            console.log('id_user:', this.post.id_user);
-            console.log('nbr_like:', this.post.nbr_like);
                         return this.service.createPost(this.post);
           })
         )
         .subscribe(
           (response) => {
             console.log('dd', response);
-            // this.msgs.push(response);
+            // this.pos.push(response);
             // this.socket.emit('message', response);
           },
           (error) => {

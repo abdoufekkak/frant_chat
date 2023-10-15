@@ -48,7 +48,7 @@ const config: SocketIoConfig = { url: `http://${host}:3000`, options: {} };
     MatIconModule,
     HttpClientModule,
     MatDialogModule,
-    SocketIoModule.forRoot(config),FormsModule
+        SocketIoModule.forRoot(config),FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

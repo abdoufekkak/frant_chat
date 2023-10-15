@@ -565,7 +565,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
   .story h4 {
     position: absolute;
-    bottom: 20px;
+    top: 5px;
     left: 20px;
     color: white;
   }
@@ -574,6 +574,24 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     padding: 10px 0;
     display: flex;
   }
+  .match{
+   position: relative;
+    display: flex;
+    top: 50%;
+    flex-direction: column;
+    align-items: center;
+    // justify-content: space-between;
+    
+  }
+  .small-button {
+    width: 24px; /* Largeur personnalisée */
+    height: 24px; /* Hauteur personnalisée */
+    font-size: 12px; /* Taille de police personnalisée */
+    border-radius: 100px;
+  }
+  .wid{
+    width: 2px;
+    height: 30px;  }
 
   .main__body {
     display: flex;
