@@ -23,6 +23,8 @@ import { StatistiqueProfileComponent } from './profile/componets/statistique-pro
 import { PosterPostesComponent } from './profile/componets/poster-postes/poster-postes.component';
 import { PostesComponent } from './profile/componets/postes/postes.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import { AllpostComponent } from './allpost/allpost.component';
+import { ScrollDirective } from './scroll.directive';
 const config: SocketIoConfig = { url: `http://${host}:3000`, options: {} };
 
 @NgModule({
@@ -37,7 +39,9 @@ const config: SocketIoConfig = { url: `http://${host}:3000`, options: {} };
     LoginComponent,
     StatistiqueProfileComponent,
     PosterPostesComponent,
-    PostesComponent
+    PostesComponent,
+    AllpostComponent,
+    ScrollDirective
   ],
   imports: [
     MatButtonModule,

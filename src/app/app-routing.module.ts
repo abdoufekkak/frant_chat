@@ -5,6 +5,7 @@ import { ChatComponent } from './chat/chat.component';
 import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './login/login.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { AllpostComponent } from './allpost/allpost.component';
 const routes: Routes = [
   {
     path: '',
@@ -15,7 +16,7 @@ const routes: Routes = [
     component: NavbarComponent,
     children: [
       { path: 'chat', component: ChatComponent },
-      { path: 'accueil', component: AccuilleComponent },
+      { path: 'accueil', component: AllpostComponent },
       { path: 'profile', component: ProfileComponent },
     ],
   },

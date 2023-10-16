@@ -12,6 +12,10 @@ export class PostService {
   GetAllpost(id: number): Observable<Post[]> {
     return this.http.get<Post[]>(`${api2}/profile/` + id);
   }
+  GetAllposts(id: number,last_post_date:number): Observable<Post[]> {
+    const params = { id: id.toString(), last_post_date: last_post_date.toString() };
+    return this.http.get<Post[]>(`${api2}/profile/all` , { params });
+  }
   reactPost(id: number, id_user: number) {
     return this.http.post(`${api2}/profile/react/${id}`, {
       id_post: id,

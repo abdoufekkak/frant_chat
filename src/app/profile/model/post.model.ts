@@ -5,5 +5,6 @@ export class Post {
   public content!: string;
   public id_user!: number;
   public nbr_like!: number ;
+  public user_name?: number;
   public id?: number;
 }
