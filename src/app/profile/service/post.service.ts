@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { Post } from '../model/post.model';
 import { api, api2 } from 'src/app/api';
+import { User } from 'src/app/chat/model/user.model';
 @Injectable({
   providedIn: 'root',
 })
@@ -33,5 +34,10 @@ export class PostService {
   sendPost(formData:any) {
     console.log("send image to folder")
     return   this.http.post('http://localhost:3001/upload-image-post', formData)
+  }
+
+  getInvitation(id:number) :Observable<User[]> {
+    return this.http.get<User[]>(`${api}/client/invite/${id}`);
+
   }
 }
