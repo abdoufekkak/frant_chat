@@ -25,6 +25,8 @@ import { PostesComponent } from './profile/componets/postes/postes.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { AllpostComponent } from './allpost/allpost.component';
 import { ScrollDirective } from './scroll.directive';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
 const config: SocketIoConfig = { url: `http://${host}:3000`, options: {} };
 
 @NgModule({
@@ -52,6 +54,7 @@ const config: SocketIoConfig = { url: `http://${host}:3000`, options: {} };
     MatIconModule,
     HttpClientModule,
     MatDialogModule,
+    MatProgressSpinnerModule,
     SocketIoModule.forRoot(config),FormsModule
   ],
   providers: [],

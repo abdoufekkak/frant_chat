@@ -33,6 +33,8 @@ export class AllpostComponent implements OnInit {
       if (this.last_post_date < 4) {
         this.scrollSubscription.unsubscribe();
       } else {
+        setTimeout(() => {
+
         this.sercive
         .GetAllposts(this.id_user, this.last_post_date)
         .subscribe((e) => {
@@ -49,6 +51,7 @@ export class AllpostComponent implements OnInit {
             this.Posts = this.Posts.reverse()
             console.log("bssbb",this.Posts)
           });
+        },2000)
       }
     });
   }
