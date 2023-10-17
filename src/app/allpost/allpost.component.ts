@@ -31,7 +31,7 @@ export class AllpostComponent implements OnInit {
       });
     this.scrollSubscription = this.scrollService.onScroll().subscribe(() => {
       if (this.last_post_date < 4) {
-        this.scrollSubscription.unsubscribe();
+         this.scrollSubscription.unsubscribe();
       } else {
         setTimeout(() => {
 
@@ -53,7 +53,7 @@ export class AllpostComponent implements OnInit {
           });
         },2000)
       }
-    });
+    },err=>alert(err));
   }
   likePost(post: Post) {
     this.sercive.reactPost(post.id || -1, post.id_user).subscribe(

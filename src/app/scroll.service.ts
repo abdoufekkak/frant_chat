@@ -16,6 +16,9 @@ export class ScrollService {
 
   // Méthode pour émettre un événement lorsque vous atteignez le bas de la page.
   scrollBottomReached() {
+
     this.scrollEvent.next();
+
+
   }
 }
