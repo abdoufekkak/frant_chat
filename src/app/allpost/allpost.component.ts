@@ -24,10 +24,13 @@ export class AllpostComponent implements OnInit {
     this.sercive
       .GetAllposts(this.id_user, this.last_post_date)
       .subscribe((e) => {
-        this.Posts = e.reverse();
+      e
+
+        this.Posts = e;
         if (e.length > 0) {
-          if (this.Posts[0].id) this.last_post_date = this.Posts[0].id;
+          if (e[e.length-1].id) this.last_post_date = e[e.length-1].id || -1;
         }
+        console.log(this.last_post_date)
       });
     this.scrollSubscription = this.scrollService.onScroll().subscribe(() => {
       if (this.last_post_date < 4) {
@@ -41,7 +44,7 @@ export class AllpostComponent implements OnInit {
           if (e.length > 0) {
             console.log("b",this.Posts)
 
-          this.Posts = this.Posts.reverse().concat(e);
+          this.Posts = this.Posts.concat(e);
           console.log("bs",this.Posts)
           this.Posts = this.Posts.reverse()
           console.log("bssb",this.Posts,this.Posts[0].id)

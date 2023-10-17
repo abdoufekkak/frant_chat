@@ -26,6 +26,8 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { AllpostComponent } from './allpost/allpost.component';
 import { ScrollDirective } from './scroll.directive';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { AngularFireModule} from '@angular/fire/compat'
+import { environement } from 'src/environments/environement';
 
 const config: SocketIoConfig = { url: `http://${host}:3000`, options: {} };
 
@@ -55,7 +57,8 @@ const config: SocketIoConfig = { url: `http://${host}:3000`, options: {} };
     HttpClientModule,
     MatDialogModule,
     MatProgressSpinnerModule,
-    SocketIoModule.forRoot(config),FormsModule
+    SocketIoModule.forRoot(config),FormsModule,
+    AngularFireModule.initializeApp(environement.firebase)
   ],
   providers: [],
   bootstrap: [AppComponent]

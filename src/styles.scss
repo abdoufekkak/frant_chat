@@ -7,7 +7,7 @@ body {
     width: 80%;
     padding:0;
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-    height: 700px;
+    height: 100%;
   }
 .dateMessage{
   position: relative;
@@ -43,7 +43,8 @@ margin: auto;
 /* ===== MENU ===== */
   .menu {
     float: left;
-    height: 700px;;
+    position: absolute;
+    height: 100%;
     width: 70px;
     background: #4768b5;
     background: -webkit-linear-gradient(#4768b5, #35488e);
@@ -577,11 +578,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   .match{
    position: relative;
     display: flex;
-    top: 50%;
-    flex-direction: column;
+    top: 75%;
     align-items: center;
     // justify-content: space-between;
-    
+
   }
   .small-button {
     width: 24px; /* Largeur personnalisée */
@@ -615,7 +615,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     // justify-content: center;
     // align-items: center;
     overflow-y: auto; /* Activer le défilement vertical lorsque le contenu dépasse la hauteur maximale */
-    max-height: 700px;
+    max-height: 100%;
     width: auto;
 }
 .feed::-webkit-scrollbar {
@@ -646,7 +646,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     display: flex;
     margin-top: 30px;
     flex-direction: column;
-    background-color: white;
     border-radius: 15px;
     box-shadow: 0px 5px 7px -7px rgba(0, 0, 0, 0.75);
     width: 100%;

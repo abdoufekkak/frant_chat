@@ -16,7 +16,7 @@ const routes: Routes = [
     component: NavbarComponent,
     children: [
       { path: 'chat', component: ChatComponent },
-      { path: 'accueil', component: AllpostComponent },
+      { path: 'accueil', component: AccuilleComponent },
       { path: 'profile', component: ProfileComponent },
     ],
   },

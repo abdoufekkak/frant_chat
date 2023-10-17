@@ -1,7 +1,7 @@
 import { Component ,OnInit} from '@angular/core';
 import { PostService } from '../profile/service/post.service';
 import { User } from '../chat/model/user.model';
-
+import { AllpostComponent } from '../allpost/allpost.component';
 @Component({
   selector: '[mon-attribut="post"]',
   templateUrl: './accuille.component.html',
