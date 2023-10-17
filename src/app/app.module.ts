@@ -23,6 +23,7 @@ import { StatistiqueProfileComponent } from './profile/componets/statistique-pro
 import { PosterPostesComponent } from './profile/componets/poster-postes/poster-postes.component';
 import { PostesComponent } from './profile/componets/postes/postes.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import { ChercherComponent } from './chercher/chercher.component';
 const config: SocketIoConfig = { url: `http://${host}:3000`, options: {} };
 
 @NgModule({
@@ -37,7 +38,8 @@ const config: SocketIoConfig = { url: `http://${host}:3000`, options: {} };
     LoginComponent,
     StatistiqueProfileComponent,
     PosterPostesComponent,
-    PostesComponent
+    PostesComponent,
+    ChercherComponent
   ],
   imports: [
     MatButtonModule,

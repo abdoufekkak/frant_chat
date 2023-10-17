@@ -16,4 +16,18 @@ export class UserService {
   return  this.http.get<User[]>(`${api}/client/amis/`+id_sender)
   }
 
+  accepterinvit(friend_id:number,user_id:number){
+    return this.http.post(`${api}/client/accepter/`,{friend_id,user_id})
+  }
+  refus_invit(friend_id:number,user_id:number){
+    return this.http.post(`${api}/client/refus_invit/`,{friend_id,user_id})
+  }
+  rechercher(id:number){
+    
+    return this.http.get<User[]>(`${api}/client/inviter/${id}`)
+  }
+
+  envoyerinvit(relation:any){
+    return this.http.post<any>(`${api}/client/envoiInvita`,relation)
+  }
 }

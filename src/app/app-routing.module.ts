@@ -5,6 +5,7 @@ import { ChatComponent } from './chat/chat.component';
 import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './login/login.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { ChercherComponent } from './chercher/chercher.component';
 const routes: Routes = [
   {
     path: '',
@@ -17,6 +18,8 @@ const routes: Routes = [
       { path: 'chat', component: ChatComponent },
       { path: 'accueil', component: AccuilleComponent },
       { path: 'profile', component: ProfileComponent },
+      { path: 'chercher', component: ChercherComponent },
+
     ],
   },
 
