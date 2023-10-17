@@ -10,6 +10,7 @@ import {
   AfterViewInit,
 } from '@angular/core';
 import { User } from '../../model/user.model';
+
 @Component({
   selector: '[mon-attribut="app-msg-ami"]',
   templateUrl: './msg-ami.component.html',

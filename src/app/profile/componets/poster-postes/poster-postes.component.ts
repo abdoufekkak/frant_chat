@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Post } from '../../model/post.model';
 import { PostService } from '../../service/post.service';
 import { concatMap } from 'rxjs';
@@ -9,6 +9,7 @@ import { concatMap } from 'rxjs';
   styleUrls: ['./poster-postes.component.scss'],
 })
 export class PosterPostesComponent {
+  @Output() EventEmitter = new EventEmitter<Post>();
   profile!: File;
   profile_url!: string;
   post!: Post;
@@ -43,15 +44,14 @@ export class PosterPostesComponent {
         .pipe(
           concatMap((value) => {
             this.post.url_img =( value as string);
-
                         return this.service.createPost(this.post);
           })
         )
         .subscribe(
           (response) => {
             console.log('dd', response);
-            // this.pos.push(response);
-            // this.socket.emit('message', response);
+            this.EventEmitter.emit(response as Post);
+
           },
           (error) => {
             console.log(error);

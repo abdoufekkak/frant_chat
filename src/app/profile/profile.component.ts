@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { PostService } from './service/post.service';
 import { Post } from './model/post.model';
 
@@ -17,5 +17,9 @@ export class ProfileComponent implements OnInit {
       (e) => (this.posts = e),
       (err) => console.log(err)
     );
+  }
+  ajouterPost(post : any){
+   const pot = this.posts
+   this.posts=[post,...pot]
   }
 }

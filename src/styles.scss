@@ -771,7 +771,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     padding: 5px;
     flex: 1;
   }
-
+  .spinner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+  }
   .post__option p {
     margin-left: 10px;
   }

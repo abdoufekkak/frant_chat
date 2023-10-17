@@ -1,4 +1,6 @@
-<div class="post" *ngFor="let post of posts">
+<div   class=" feed" appScroll>
+<div *ngIf="!Posts" class="spinner"><mat-spinner></mat-spinner></div>
+<div  *ngFor="let post of Posts" class="post">
   <div class="post__top">
     <img
       class="user__avatar post__avatar"
@@ -6,24 +8,26 @@
       alt=""
     />
     <div class="post__topInfo">
-      <h3>{{ post.id_user }}</h3>
-      <p>{{ post.date_pub | date : "dd MMMM 'à' HH:mm" }}</p>
+      <h3>{{post.user_name}}</h3>
+      <p>{{post.date_pub | date : 'd MMMM \'at\' HH:mm'}}</p>
     </div>
   </div>
 
   <div class="post__bottom">
-    <p>{{ post.content }}</p>
+    <p>{{post.content}}</p>
   </div>
-
   <div class="post__image">
     <img [src]="'http://localhost:3001/posts/'+post.url_img" alt="Image"/>
   </div>
-
   <div class="post__options">
     <div class="post__option">
       <span class="material-icons" (click)="likePost(post)"> thumb_up </span>
 
       <p>{{ post.nbr_like }}</p>
     </div>
+
+
   </div>
+</div>
+<!-- post ends -->
 </div>
