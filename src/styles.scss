@@ -589,9 +589,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     font-size: 12px; /* Taille de police personnalisée */
     border-radius: 100px;
   }
-  .wid{
-    width: 2px;
-    height: 30px;  }
+
 
   .main__body {
     display: flex;
@@ -720,6 +718,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     align-items: center;
     padding: 15px;
   }
+  .sss{
+    position: relative;
+    right: 0;
+  }
   #dd{
     width: 100px;
 
@@ -727,7 +729,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   #ss{
     justify-content: space-between;
   }
-
+  .element {
+    float: right;
+    margin: 20px;
+}
   .post__avatar {
     margin-right: 10px;
   }

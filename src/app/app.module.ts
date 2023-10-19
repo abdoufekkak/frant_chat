@@ -23,6 +23,7 @@ import { StatistiqueProfileComponent } from './profile/componets/statistique-pro
 import { PosterPostesComponent } from './profile/componets/poster-postes/poster-postes.component';
 import { PostesComponent } from './profile/componets/postes/postes.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import { ChercherComponent } from './chercher/chercher.component';
 import { AllpostComponent } from './allpost/allpost.component';
 import { ScrollDirective } from './scroll.directive';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
@@ -44,6 +45,8 @@ const config: SocketIoConfig = { url: `http://${host}:3000`, options: {} };
     StatistiqueProfileComponent,
     PosterPostesComponent,
     PostesComponent,
+    ChercherComponent,
+
     AllpostComponent,
     ScrollDirective
   ],
