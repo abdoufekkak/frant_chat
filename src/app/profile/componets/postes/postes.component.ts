@@ -24,11 +24,17 @@ export class PostesComponent implements OnInit {
 
   likePost(post: Post) {
     this.postService.reactPost(post.id || -1, this.id_sender).subscribe(
-      (response) => {
-        console.log(response);
+      (reponse) => {
+      if(reponse.status===205){
         post.nbr_like++;
+      }
+      else if (reponse.status===204){
+        post.nbr_like--;
+      }
       },
-      (error) => console.log(error)
+      (error) => {
+        console.log(error)
+      }
     );
   }
 }

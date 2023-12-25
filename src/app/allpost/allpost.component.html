@@ -22,8 +22,8 @@
     <img [src]="'http://localhost:3001/posts/'+post.url_img" alt="Image"/>
   </div>
   <div class="post__options">
-    <div class="post__option">
-      <span class="material-icons" (click)="likePost(post)"> thumb_up </span>
+    <div class="post__option" (click)="likePost(post)">
+      <span class="material-icons" > thumb_up </span>
 
       <p>{{ post.nbr_like }}</p>
     </div>

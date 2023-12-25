@@ -21,7 +21,7 @@ export class PostService {
     return this.http.post(`${api2}/profile/react/${id}`, {
       id_post: id,
       id_user,
-    });
+    },{  observe: 'response' });
   }
   createPost(post: Post) {
     console.log('post: ' + post);

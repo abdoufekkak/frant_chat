@@ -20,18 +20,29 @@ import { MsgService } from '../../service/msg.service';
 })
 export class MsgAmiComponent implements OnInit {
   @Input() amisAvecDerniersMessages!: { ami: User; lastMessage: message | null }[];
-  @Input() id_sender!: number;
+  amisFiltres: { ami: User; lastMessage: message | null }[] = [];  @Input() id_sender!: number;
   @Input() last_message!: message;
 
   @Output() valueEmitted = new EventEmitter<number>();
 
   constructor(private msgService: MsgService) {}
   ngOnInit() {
+    this.amisFiltres = this.amisAvecDerniersMessages; // Initialiser avec tous les amis
   }
 
   selectmi(id?: number) {
     if (id) {
       this.valueEmitted.emit(id);
+    }
+  }
+  filtrerAmis(event: any) {
+    console.log('dd')
+    if (!event.target.value) {
+      this.amisFiltres = this.amisAvecDerniersMessages;
+    } else {
+      this.amisFiltres = this.amisAvecDerniersMessages.filter(ami =>
+        ami.ami.username.toLowerCase().includes(event.target.value.toLowerCase())
+      );
     }
   }
   getTimeDifference(date: Date): string {

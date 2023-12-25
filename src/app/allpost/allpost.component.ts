@@ -61,8 +61,12 @@ export class AllpostComponent implements OnInit {
   likePost(post: Post) {
     this.sercive.reactPost(post.id || -1, post.id_user).subscribe(
       (response) => {
-        console.log(response);
-        post.nbr_like++;
+        if(response.status===205){
+          post.nbr_like++;
+        }
+        else if (response.status===204){
+          post.nbr_like--;
+        }
       },
       (error) => console.log(error)
     );
