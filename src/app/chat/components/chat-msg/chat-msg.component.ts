@@ -20,6 +20,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { concatMap, map } from 'rxjs';
 import { DialogOverviewExampleDialog } from './dialog/dialog.component';
 import { User } from '../../model/user.model';
+import { UserService } from '../../service/user.service';
 
 @Component({
   selector: '[mon-attribut="app-chat-msg"]',
@@ -32,7 +33,7 @@ export class ChatMsgComponent implements OnInit, OnChanges {
   @Input() id_recever!: number;
   @Input() id_sender!: number;
   isrecord: boolean = false;
-  dateJour: any;
+  user!: User;
   hoverIndex: number | null = null;
   foc: boolean = true;
   @Output() valueEmitted = new EventEmitter<MessageType>();
@@ -41,11 +42,13 @@ export class ChatMsgComponent implements OnInit, OnChanges {
   @ViewChild('scrollContainer') scrollContainer!: ElementRef;
   mediaRecorder!: MediaRecorder;
   audioChunks: Blob[] = [];
+  @Output() LastMsg = new EventEmitter<message>();
 
   constructor(
     public dialog: MatDialog,
     private socket: Socket,
     private service: MsgService,
+    private service2: UserService,
     public http: HttpClient
   ) {
     navigator.mediaDevices
@@ -84,29 +87,40 @@ export class ChatMsgComponent implements OnInit, OnChanges {
     this.isrecord = false;
   }
   ngOnInit(): void {
+
     this.socket.on('msgenvoyer', (mess: message) => {
       console.log('msgenvoyer');
 
       this.msgs.push(mess);
+      this.LastMsg.emit(this.msgs[this.msgs.length -1]);
 
-      // this.messages.push(message);
+         // this.messages.push(message);
     });
     this.socket.on('audio_envoyer', (mess: message) => {
       this.msgs.push(mess);
-
+   this.LastMsg.emit(this.msgs[this.msgs.length -1]);
       // this.messages.push(message);
     });
     this.socket.on('msgdelete', (id: number) => {
       console.log('msgdelete');
 
       this.msgs.splice(id, 1);
+      this.LastMsg.emit(this.msgs[this.msgs.length -1]);
+
     });
     this.socket.emit('join chat', this.id_sender);
+
   }
   // isMessageTypeText(msg: message): boolean {
   //   return msg.message_type ==="";
   // }
   ngOnChanges(changes: SimpleChanges) {
+
+    if(
+      this.id_recever
+    )    this.service2.getById(this.id_recever).subscribe( user   =>
+          this.user=user
+        )
     if (changes['msgs']) {
       setTimeout(() => {
         this.n();
@@ -123,7 +137,6 @@ export class ChatMsgComponent implements OnInit, OnChanges {
   }
   sendMessage() {
     // alert(this.audioChunks.length)
-
     if (this.content) {
       this.msg.receiver_id = this.id_recever;
       this.msg.sender_id = this.id_sender;
@@ -137,6 +150,7 @@ export class ChatMsgComponent implements OnInit, OnChanges {
 
       this.service.setMsg(this.msg).subscribe((e) => {
         this.msgs.push(e);
+        this.LastMsg.emit(this.msgs[this.msgs.length -1]);
         this.socket.emit('message', this.msg);
         // this.n();
         this.msg = new message();
@@ -169,6 +183,8 @@ export class ChatMsgComponent implements OnInit, OnChanges {
               (response) => {
                 console.log(response);
                 this.msgs.push(response);
+                this.LastMsg.emit(this.msgs[this.msgs.length -1]);
+
                 this.socket.emit('audio', response);
                 this.isrecord = false;
               },
@@ -192,6 +208,7 @@ export class ChatMsgComponent implements OnInit, OnChanges {
         this.service.dlete_for_me(id).subscribe(
           () => {
             this.msgs.splice(i, 1);
+            this.LastMsg.emit(this.msgs[this.msgs.length -1]);
             console.log('Message supprimé avec succès');
           },
           (error) => {
@@ -202,6 +219,8 @@ export class ChatMsgComponent implements OnInit, OnChanges {
         this.service.dlete_for_all(id).subscribe(
           () => {
             this.msgs.splice(i, 1);
+            this.LastMsg.emit(this.msgs[this.msgs.length -1]);
+
             const data = { receiver_id: this.id_recever, id: i };
             this.socket.emit('delete', data);
             console.log('Message supprimé for all avec succès');
@@ -248,6 +267,8 @@ export class ChatMsgComponent implements OnInit, OnChanges {
           if(msage.receiver_id == this.id_recever){
             console.log("ff",this.msgs)
             this.msgs.push(this.msg);
+            this.LastMsg.emit(this.msgs[this.msgs.length -1]);
+
             console.log("ffs",this.msgs)
           }
           this.socket.emit('message',msage);
@@ -286,6 +307,7 @@ export class ChatMsgComponent implements OnInit, OnChanges {
           (response) => {
             console.log("dd",response);
             this.msgs.push(response);
+            this.LastMsg.emit(this.msgs[this.msgs.length -1]);
             this.socket.emit('message', response);
           },
           (error) => {

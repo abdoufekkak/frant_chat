@@ -23,10 +23,13 @@ export class UserService {
     return this.http.post(`${api}/client/refus_invit/`,{friend_id,user_id})
   }
   rechercher(id:number){
-    
+
     return this.http.get<User[]>(`${api}/client/inviter/${id}`)
   }
+  getById(id:number){
 
+    return this.http.get<User>(`${api}/client/${id}`)
+  }
   envoyerinvit(relation:any){
     return this.http.post<any>(`${api}/client/envoiInvita`,relation)
   }

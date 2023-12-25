@@ -1,7 +1,7 @@
 <section class="chat">
   <div class="header-chat">
     <i class="icon fa fa-user-o" aria-hidden="true"></i>
-    <p class="name" (click)="n()">Megan Leib</p>
+    <p class="name" *ngIf="user" style="cursor: pointer;"  (click)="n()">{{user.username}}</p>
     <i class="icon clickable fa fa-ellipsis-h right" aria-hidden="true"></i>
   </div>
   <div class="messages-chat" id="scrol" #scrollContainer>
@@ -22,7 +22,6 @@
         </span>
         <mat-menu #menu="matMenu">
           <button (click)="deleteMessage('me',msg.id,i)" mat-menu-item>
-            <span>delete for me </span>
           </button>
           <button mat-menu-item>
             <span>transfert</span>
@@ -77,7 +76,7 @@
 
   </div>
   <div *ngIf="id_recever" class="footer-chat">
-    <i class="icon fa fa-smile-o clickable" style="font-size:25pt;" aria-hidden="true"></i>
+    <!-- <i class="icon fa fa-smile-o clickable" style="font-size:25pt;" aria-hidden="true"></i> -->
     <input type="text" class="write-message" placeholder="Type your message here" [(ngModel)]="content">
     <i class="icon send fa fa-paper-plane-o clickable" (click)="sendMessage()" aria-hidden="true" *ngIf="content"></i>
     <mat-icon (click)="sendMessage()" *ngIf="!content">mic</mat-icon>

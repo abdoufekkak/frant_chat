@@ -45,7 +45,7 @@ margin: auto;
     float: left;
     position: absolute;
     height: 100%;
-    width: 70px;
+    width: 5%;
     background: #4768b5;
     background: -webkit-linear-gradient(#4768b5, #35488e);
     background: -o-linear-gradient(#4768b5, #35488e);
@@ -84,8 +84,9 @@ margin: auto;
   /* === CONVERSATIONS === */
 
   .discussions {
-    width: 100%;
-    height: 700px;
+    position: absolute;
+    height: 100%;
+    width: 20%;
     box-shadow: 0px 8px 10px rgba(0,0,0,0.20);
     overflow: hidden;
     background-color: #87a3ec;
@@ -180,7 +181,7 @@ margin: auto;
   .ff{
     display: grid;
     width: 100%;
-    grid-template-columns:30% 70%; /* Trois colonnes égales */
+    grid-template-columns:20% 80%; /* Trois colonnes égales */
 
   }
   .desc-contact {
@@ -217,8 +218,10 @@ margin: auto;
   }
 
   .chat {
-    width: 100%;
+    width: 76%;
+    right: 0%;
     display: flex;
+    position: absolute;
     flex-direction: column;
   }
 
@@ -228,7 +231,7 @@ margin: auto;
     position: relative;
     width: 100%;
     box-shadow: 0px 3px 2px rgba(0,0,0,0.100);
-    // display:flex;
+    display:flex;
     align-items: center;
   }
 
@@ -253,14 +256,13 @@ margin: auto;
   #scrol{
     overflow-y: auto;
     overflow-x: hidden;
-    max-height: 500px;
+    max-height: 670px;
 
 
   }
 
   .chat .messages-chat {
     padding: 25px 35px;
-
  width: 100%;
   }
 
@@ -517,7 +519,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   .row{
     width: 100%;
     display: grid;
-    grid-template-columns:6% 95%; /* Trois colonnes égales */
+    grid-template-columns : 5% 90%; /* Trois colonnes égales */
 
   }
   .sidebarRow {
