@@ -11,7 +11,7 @@
       </div>
       <div class="desc-contact" (click)="selectmi(ami.ami.id)">
         <p class="name"> {{ami.ami.username}}</p>
-        <p class="message">{{ last_message ? last_message.content : ami.lastMessage?.content }}</p>
+        <p class="message">{{ last_message ? (last_message.message_type==='Text' ? last_message.content : 'audio' ):  (ami.lastMessage?.message_type==='Text' ? ami.lastMessage?.content : (ami.lastMessage?.message_type==='Audio' ? 'audio' : 'Photot')) }}</p>
       </div>
       <div class="timer">
         <ng-container *ngIf="last_message">
