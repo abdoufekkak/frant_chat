@@ -363,7 +363,6 @@ margin: auto;
   }
 
   .write-message {
-    border:none !important;
     width:60%;
     height: 50px;
     margin-left: 20px;
@@ -450,7 +449,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   }
 
   .header__input input {
-    border: none;
     background-color: transparent;
     outline-width: 0;
   }
@@ -669,7 +667,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   .messageSender__top form input {
     flex: 1;
     outline-width: 0;
-    border: none;
     padding: 15px 20px;
     margin: 0 10px;
     border-radius: 999px;
